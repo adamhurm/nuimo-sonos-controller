@@ -3,6 +3,7 @@
 import sys
 from argparse import ArgumentParser
 import nuimo
+from sonoscontroller import handle_event
 
 controller_manager = None
 
@@ -30,7 +31,8 @@ class ControllerPrintListener(nuimo.ControllerListener):
         self.print("disconnected")
 
     def received_gesture_event(self, event):
-        self.print("did send gesture event " + str(event))
+        handle_event(event)
+        #self.print("did send gesture event " + str(event))
 
     def print(self, string):
         print("Nuimo controller " + self.controller.mac_address + " " + string)
