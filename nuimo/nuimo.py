@@ -182,6 +182,7 @@ class Controller(gatt.Device):
                 return
             characteristic.enable_notifications()
 
+        '''
         battery_service = next((service for service in self.services if service.uuid == self.BATTERY_SERVICE_UUID), None)
         if battery_service is None:
             if self.listener:
@@ -201,6 +202,7 @@ class Controller(gatt.Device):
         # TODO: Only fire connected event when we read the firmware version or battery value as in other SDKs
         if self.listener:
             self.listener.connect_succeeded()
+        '''
 
     def read_battery_level(self):
         return self.battery_level
