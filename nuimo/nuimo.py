@@ -200,9 +200,9 @@ class Controller(gatt.Device):
         battery_characteristic.read_value()
         battery_characteristic.enable_notifications()
         # TODO: Only fire connected event when we read the firmware version or battery value as in other SDKs
+        '''
         if self.listener:
             self.listener.connect_succeeded()
-        '''
 
     def read_battery_level(self):
         return self.battery_level
